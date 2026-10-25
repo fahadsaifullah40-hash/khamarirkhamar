@@ -93,7 +93,17 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .btn svg { width: 20px; height: 20px; flex: none; }
 .btn-call { background: var(--paddy); color: var(--on-accent); }
 .btn-wa { background: transparent; color: var(--paddy); border-color: var(--paddy); }
-.scene { display: block; width: 100%; height: auto; margin-top: 8px; }
+.scene { display: block; width: 100%; height: auto; margin-top: -6px; }
+.hero-text { display: grid; gap: 18px; min-width: 0; }
+.leap { justify-self: center; width: 110px; height: auto; margin-bottom: -10px; position: relative; z-index: 1; }
+@media (min-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr auto; align-items: end; column-gap: 40px; }
+  .leap { width: 150px; margin-right: 8%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .leap { animation: bob 3.2s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-6px); } }
+}
 
 /* ---------- বিভাগ ---------- */
 section { padding-block: 40px; }
@@ -101,14 +111,6 @@ section { padding-block: 40px; }
 .sec-head h2 { font-size: clamp(24px, 5.5vw, 32px); color: var(--ink); }
 .sec-head p { margin: 0; color: var(--muted); max-width: 38em; }
 
-.cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.cat {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 15px;
-  border: 1px solid var(--line); color: var(--muted); background: var(--surface);
-}
-.cat.on { background: var(--pond); border-color: var(--pond); color: var(--on-accent); }
-.cat small { font-size: 12px; font-weight: 600; color: var(--soil); }
 
 /* ---------- পণ্য ---------- */
 .grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
@@ -200,7 +202,7 @@ footer .brand-name { font-size: 22px; }
   ৩. ছবি: প্রতিটি পণ্যের <div class="ph">...</div> অংশ মুছে সেখানে
      <img src="images/dorb.jpg" alt="ডিওআরবি" loading="lazy" width="800" height="600"> লিখুন।
      ছবিগুলো এই ফাইলের পাশে "images" নামের ফোল্ডারে রাখুন। ছবি ছোট রাখুন (১০০–২০০ KB), গ্রামের ধীর ইন্টারনেটেও দ্রুত খুলবে।
-  ৪. নতুন বিভাগ (গবাদি পশুর খাবার, ওষুধ ইত্যাদি): একটা <article class="card"> কপি করে নতুন পণ্য বানান।
+  ৪. নতুন পণ্য যোগ করতে: একটা <article class="card"> পুরোটা কপি করে নাম, বিবরণ আর ছবি বদলে দিন।
 -->
 
 <header class="top">
@@ -225,6 +227,7 @@ footer .brand-name { font-size: 22px; }
 <main>
   <div class="hero">
     <div class="wrap">
+      <div class="hero-text">
       <span class="eyebrow">মাছ চাষিদের নিজের দোকান</span>
       <h1>পুকুরের মাছের জন্য খাঁটি খাবার</h1>
       <p>ডিওআরবি, সরিষার খৈল, ডিডিজিএস, রাইস ব্রান আর শুঁটকির গুঁড়া। ভালো মানের খাদ্য উপকরণ, ন্যায্য দামে, আপনার খামারের কাছে পৌঁছে দিই।</p>
@@ -238,6 +241,22 @@ footer .brand-name { font-size: 22px; }
           হোয়াটসঅ্যাপ
         </a>
       </div>
+      </div>
+      <!-- পুকুর থেকে উপরের দিকে লাফিয়ে ওঠা মাছ -->
+      <svg class="leap" viewBox="0 0 120 210" role="img" aria-label="উপরের দিকে মুখ করা মাছ">
+        <path d="M60 182 L34 206 Q60 196 86 206 Z" fill="var(--pond)"/>
+        <path d="M60 8 C88 22 98 70 92 112 C87 146 74 170 60 186 C46 170 33 146 28 112 C22 70 32 22 60 8 Z" fill="var(--pond)"/>
+        <path d="M60 40 C74 60 78 100 72 136 C68 156 64 168 60 176 C56 168 52 156 48 136 C42 100 46 60 60 40 Z" fill="var(--on-accent)" opacity=".22"/>
+        <path d="M92 92 C108 98 114 114 110 128 C102 120 96 116 90 116 Z" fill="var(--mustard)"/>
+        <path d="M28 92 C12 98 6 114 10 128 C18 120 24 116 30 116 Z" fill="var(--mustard)"/>
+        <path d="M60 60 C70 72 72 90 66 100 L54 100 C48 90 50 72 60 60 Z" fill="var(--mustard)" opacity=".55"/>
+        <circle cx="47" cy="36" r="5" fill="var(--on-accent)"/><circle cx="47" cy="36" r="2.4" fill="var(--ink)"/>
+        <circle cx="73" cy="36" r="5" fill="var(--on-accent)"/><circle cx="73" cy="36" r="2.4" fill="var(--ink)"/>
+        <path d="M54 16 Q60 20 66 16" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M38 58 Q60 66 82 58" stroke="var(--on-accent)" stroke-width="2" fill="none" opacity=".5"/>
+        <circle cx="96" cy="20" r="4" fill="none" stroke="var(--pond)" stroke-width="2"/>
+        <circle cx="104" cy="6" r="2.5" fill="none" stroke="var(--pond)" stroke-width="2"/>
+      </svg>
     </div>
     <!-- মাঠ, সরিষা ফুল আর পুকুরের ছোট্ট দৃশ্য -->
     <svg class="scene" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
@@ -254,15 +273,6 @@ footer .brand-name { font-size: 22px; }
       <div class="sec-head">
         <h2>আমাদের পণ্য</h2>
         <p>সব পণ্য বস্তায় বিক্রি হয়। দাম বাজার অনুযায়ী ওঠানামা করে, তাই আজকের দাম জানতে ফোন বা হোয়াটসঅ্যাপ করুন।</p>
-      </div>
-
-      <!-- ভবিষ্যতের বিভাগগুলো এখানে যোগ হবে -->
-      <div class="cats" aria-label="পণ্যের বিভাগ">
-        <span class="cat on">মাছের খাবার</span>
-        <span class="cat">গবাদি পশুর খাবার <small>শীঘ্রই</small></span>
-        <span class="cat">হাঁস-মুরগির খাবার <small>শীঘ্রই</small></span>
-        <span class="cat">পশুর ওষুধ <small>শীঘ্রই</small></span>
-        <span class="cat">কৃষি উপকরণ <small>শীঘ্রই</small></span>
       </div>
 
       <div class="grid">
@@ -408,7 +418,7 @@ footer .brand-name { font-size: 22px; }
 <footer>
   <div class="wrap">
     <span class="brand-name">খামারির খাবার</span>
-    <span>মাছ, পশু ও ফসলের খামারির পাশে। khamarirkhabar.com</span>
+    <span>মাছ চাষির পাশে। khamarirkhabar.com</span>
   </div>
 </footer>
 
