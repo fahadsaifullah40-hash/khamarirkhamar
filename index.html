@@ -129,9 +129,6 @@ section { padding-block: 40px; }
   color: var(--soil); font-size: 14px; font-weight: 600;
 }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
-.photo .ph { display: grid; gap: 4px; justify-items: center; padding: 12px; }
-.photo .ph svg { width: 40px; height: 40px; }
-.photo .ph code { font-size: 12px; font-weight: 400; opacity: .85; }
 .body { padding: 16px 18px 18px; display: grid; gap: 10px; flex: 1; align-content: start; }
 .body h3 { font-size: 22px; color: var(--paddy); }
 .body h3 span { display: block; font-size: 14px; font-weight: 600; color: var(--muted); }
@@ -139,12 +136,6 @@ section { padding-block: 40px; }
 .specs { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; font-size: 15px; }
 .specs dt { color: var(--muted); }
 .specs dd { margin: 0; font-weight: 600; }
-.card .ask {
-  margin-top: auto; padding: 12px 18px; border-top: 1px dashed var(--line);
-  display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;
-  font-size: 15px; color: var(--muted);
-}
-.card .ask a { font-weight: 700; color: var(--paddy); text-decoration: none; }
 .note { margin-top: 16px; font-size: 14px; color: var(--muted); }
 
 /* ---------- কেন আমরা ---------- */
@@ -197,12 +188,10 @@ footer .brand-name { font-size: 22px; }
 <body>
 <!--
   ===== কোথায় কী বদলাবেন =====
-  ১. ফোন নম্বর: "01XXX-XXXXXX" ও "+8801XXXXXXXXX" লেখা সব জায়গায় নিজের নম্বর দিন।
-  ২. হোয়াটসঅ্যাপ: "https://wa.me/8801XXXXXXXXX" লিঙ্কে নিজের নম্বর দিন (শুরুতে 880, মাঝে কোনো ফাঁকা নয়)।
-  ৩. ছবি: প্রতিটি পণ্যের <div class="ph">...</div> অংশ মুছে সেখানে
-     <img src="images/dorb.jpg" alt="ডিওআরবি" loading="lazy" width="800" height="600"> লিখুন।
-     ছবিগুলো এই ফাইলের পাশে "images" নামের ফোল্ডারে রাখুন। ছবি ছোট রাখুন (১০০–২০০ KB), গ্রামের ধীর ইন্টারনেটেও দ্রুত খুলবে।
-  ৪. নতুন পণ্য যোগ করতে: একটা <article class="card"> পুরোটা কপি করে নাম, বিবরণ আর ছবি বদলে দিন।
+  ১. ফোন ও হোয়াটসঅ্যাপ নম্বর: +880 1737-887820। বদলাতে চাইলে "1737887820" খুঁজে সব জায়গায় বদলান।
+  ২. ছবি: images ফোল্ডারে dorb.jpg, rapeseed-cake.jpg, ddgs.jpg, rice-bran.jpg, fish-meal.jpg আছে।
+     একই নামে আসল ছবি রাখলেই সাইটে বদলে যাবে। ছবি ছোট রাখুন (১০০–২০০ KB), গ্রামের ধীর ইন্টারনেটেও দ্রুত খুলবে।
+  ৩. নতুন পণ্য যোগ করতে: একটা <article class="card"> পুরোটা কপি করে নাম, বিবরণ আর ছবি বদলে দিন।
 -->
 
 <header class="top">
@@ -232,11 +221,11 @@ footer .brand-name { font-size: 22px; }
       <h1>পুকুরের মাছের জন্য খাঁটি খাবার</h1>
       <p>ডিওআরবি, সরিষার খৈল, ডিডিজিএস, রাইস ব্রান আর শুঁটকির গুঁড়া। ভালো মানের খাদ্য উপকরণ, ন্যায্য দামে, আপনার খামারের কাছে পৌঁছে দিই।</p>
       <div class="cta-row">
-        <a class="btn btn-call" href="tel:+8801XXXXXXXXX">
+        <a class="btn btn-call" href="tel:+8801737887820">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
           ফোন করুন
         </a>
-        <a class="btn btn-wa" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">
+        <a class="btn btn-wa" href="https://wa.me/8801737887820" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.13-.56.12-.64.8-.78.97-.29.19-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.44.25-.4.72-1.34a.45.45 0 0 0-.02-.43c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.43h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1.02 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.69 2.23.75 3.03.63a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .15-1.2c-.06-.11-.23-.17-.48-.29z"/></svg>
           হোয়াটসঅ্যাপ
         </a>
@@ -272,17 +261,13 @@ footer .brand-name { font-size: 22px; }
     <div class="wrap">
       <div class="sec-head">
         <h2>আমাদের পণ্য</h2>
-        <p>সব পণ্য বস্তায় বিক্রি হয়। দাম বাজার অনুযায়ী ওঠানামা করে, তাই আজকের দাম জানতে ফোন বা হোয়াটসঅ্যাপ করুন।</p>
+        <p>সব পণ্য বস্তায় বিক্রি হয়। দাম ও পরিমাণ জানতে ফোন বা হোয়াটসঅ্যাপ করুন।</p>
       </div>
 
       <div class="grid">
         <article class="card" data-category="fish">
           <div class="photo">
-            <div class="ph">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-              ছবি এখানে বসান
-              <code>images/dorb.jpg</code>
-            </div>
+            <img src="images/dorb.jpg" alt="ডিওআরবি" loading="lazy" width="800" height="600">
           </div>
           <div class="body">
             <h3>ডিওআরবি <span>তেল ছাড়ানো চালের কুঁড়া (DORB)</span></h3>
@@ -292,16 +277,11 @@ footer .brand-name { font-size: 22px; }
               <dt>বস্তা</dt><dd>৫০ কেজি</dd>
             </dl>
           </div>
-          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%A1%E0%A6%BF%E0%A6%93%E0%A6%86%E0%A6%B0%E0%A6%AC%E0%A6%BF%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
         </article>
 
         <article class="card" data-category="fish">
           <div class="photo">
-            <div class="ph">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-              ছবি এখানে বসান
-              <code>images/rapeseed-cake.jpg</code>
-            </div>
+            <img src="images/rapeseed-cake.jpg" alt="সরিষার খৈল" loading="lazy" width="800" height="600">
           </div>
           <div class="body">
             <h3>রেপসিড অয়েল কেক <span>সরিষার খৈল</span></h3>
@@ -311,16 +291,11 @@ footer .brand-name { font-size: 22px; }
               <dt>বস্তা</dt><dd>৫০ কেজি</dd>
             </dl>
           </div>
-          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B8%E0%A6%B0%E0%A6%BF%E0%A6%B7%E0%A6%BE%E0%A6%B0%20%E0%A6%96%E0%A7%88%E0%A6%B2%E0%A7%87%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
         </article>
 
         <article class="card" data-category="fish">
           <div class="photo">
-            <div class="ph">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-              ছবি এখানে বসান
-              <code>images/ddgs.jpg</code>
-            </div>
+            <img src="images/ddgs.jpg" alt="ডিডিজিএস" loading="lazy" width="800" height="600">
           </div>
           <div class="body">
             <h3>ডিডিজিএস <span>ভুট্টার শুকনো দানা (DDGS)</span></h3>
@@ -330,16 +305,11 @@ footer .brand-name { font-size: 22px; }
               <dt>বস্তা</dt><dd>৫০ কেজি</dd>
             </dl>
           </div>
-          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=DDGS%20%E0%A6%8F%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
         </article>
 
         <article class="card" data-category="fish">
           <div class="photo">
-            <div class="ph">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-              ছবি এখানে বসান
-              <code>images/rice-bran.jpg</code>
-            </div>
+            <img src="images/rice-bran.jpg" alt="রাইস ব্রান" loading="lazy" width="800" height="600">
           </div>
           <div class="body">
             <h3>রাইস ব্রান <span>চালের কুঁড়া (তেলসহ)</span></h3>
@@ -349,16 +319,11 @@ footer .brand-name { font-size: 22px; }
               <dt>বস্তা</dt><dd>৫০ কেজি</dd>
             </dl>
           </div>
-          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B0%E0%A6%BE%E0%A6%87%E0%A6%B8%20%E0%A6%AC%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%A8%E0%A7%87%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
         </article>
 
         <article class="card" data-category="fish">
           <div class="photo">
-            <div class="ph">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
-              ছবি এখানে বসান
-              <code>images/fish-meal.jpg</code>
-            </div>
+            <img src="images/fish-meal.jpg" alt="শুঁটকির গুঁড়া" loading="lazy" width="800" height="600">
           </div>
           <div class="body">
             <h3>ফিশ মিল <span>শুঁটকির গুঁড়া</span></h3>
@@ -368,7 +333,6 @@ footer .brand-name { font-size: 22px; }
               <dt>বস্তা</dt><dd>২৫ / ৫০ কেজি</dd>
             </dl>
           </div>
-          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B6%E0%A7%81%E0%A6%81%E0%A6%9F%E0%A6%95%E0%A6%BF%E0%A6%B0%20%E0%A6%97%E0%A7%81%E0%A6%81%E0%A6%A1%E0%A6%BC%E0%A6%BE%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
         </article>
       </div>
       <p class="note">প্রোটিনের হার সাধারণ মান, ব্যাচ অনুযায়ী কিছুটা কম-বেশি হতে পারে।</p>
@@ -394,7 +358,7 @@ footer .brand-name { font-size: 22px; }
       </div>
       <ol class="steps">
         <li><div><strong>ফোন বা মেসেজ দিন</strong><span>কোন পণ্য কত বস্তা লাগবে বলুন।</span></div></li>
-        <li><div><strong>দাম ও ডেলিভারি ঠিক করুন</strong><span>আজকের দাম আর পৌঁছানোর দিন জানিয়ে দেব।</span></div></li>
+        <li><div><strong>দাম ও ডেলিভারি ঠিক করুন</strong><span>দাম আর পৌঁছানোর দিন জানিয়ে দেব।</span></div></li>
         <li><div><strong>মাল বুঝে নিন</strong><span>খামারে মাল পৌঁছালে দেখে নিয়ে টাকা দিন।</span></div></li>
       </ol>
     </div>
@@ -404,11 +368,11 @@ footer .brand-name { font-size: 22px; }
     <div class="wrap">
       <div class="box">
         <h2>যোগাযোগ</h2>
-        <div class="num">01XXX-XXXXXX</div>
+        <div class="num">+880 1737-887820</div>
         <p>সকাল ৮টা থেকে রাত ৯টা, প্রতিদিন</p>
         <div class="cta-row">
-          <a class="btn btn-call" href="tel:+8801XXXXXXXXX">ফোন করুন</a>
-          <a class="btn btn-wa" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">হোয়াটসঅ্যাপে মেসেজ</a>
+          <a class="btn btn-call" href="tel:+8801737887820">ফোন করুন</a>
+          <a class="btn btn-wa" href="https://wa.me/8801737887820" target="_blank" rel="noopener">হোয়াটসঅ্যাপে মেসেজ</a>
         </div>
       </div>
     </div>
@@ -423,8 +387,8 @@ footer .brand-name { font-size: 22px; }
 </footer>
 
 <div class="dock">
-  <a class="btn btn-call" href="tel:+8801XXXXXXXXX">ফোন করুন</a>
-  <a class="btn btn-wa" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">হোয়াটসঅ্যাপ</a>
+  <a class="btn btn-call" href="tel:+8801737887820">ফোন করুন</a>
+  <a class="btn btn-wa" href="https://wa.me/8801737887820" target="_blank" rel="noopener">হোয়াটসঅ্যাপ</a>
 </div>
 <!--ARTIFACT-END-->
 </body>
