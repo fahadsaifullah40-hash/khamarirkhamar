@@ -84,6 +84,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .eyebrow { font-weight: 700; color: var(--soil); font-size: 15px; letter-spacing: .02em; }
 .hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 9vw, 64px); color: var(--paddy); }
 .hero p { margin: 0; max-width: 34em; color: var(--muted); font-size: 18px; }
+.tagline {
+  margin: 0; font-family: var(--font-display); font-size: clamp(20px, 4.6vw, 26px); line-height: 1.4;
+  color: var(--soil); max-width: 26em; text-wrap: balance;
+}
+.tagline::before { content: "“"; color: var(--mustard); }
+.tagline::after { content: "”"; color: var(--mustard); }
 .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -220,6 +226,7 @@ footer .brand-name { font-size: 22px; }
       <span class="eyebrow">মাছ চাষিদের নিজের দোকান</span>
       <h1>পুকুরের মাছের জন্য খাঁটি খাবার</h1>
       <p>ডিওআরবি, সরিষার খৈল, ডিডিজিএস, রাইস ব্রান আর শুঁটকির গুঁড়া। ভালো মানের খাদ্য উপকরণ, ন্যায্য দামে, আপনার খামারের কাছে পৌঁছে দিই।</p>
+      <p class="tagline">আমাদের খাবারের ক্রেতার বিশ্বাসই আমাদের ব্যবসার মূলধন</p>
       <div class="cta-row">
         <a class="btn btn-call" href="tel:+8801737887820">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
@@ -359,8 +366,8 @@ footer .brand-name { font-size: 22px; }
       </div>
       <ol class="steps">
         <li><div><strong>ফোন বা মেসেজ দিন</strong><span>কোন পণ্য কত বস্তা লাগবে বলুন।</span></div></li>
-        <li><div><strong>দাম ও ডেলিভারি ঠিক করুন</strong><span>দাম আর পৌঁছানোর দিন জানিয়ে দেব।</span></div></li>
-        <li><div><strong>মাল বুঝে নিন</strong><span>খামারে মাল পৌঁছালে দেখে নিয়ে টাকা দিন।</span></div></li>
+        <li><div><strong>টাকা পাঠিয়ে অর্ডার নিশ্চিত করুন</strong><span>দাম আর পৌঁছানোর দিন জানিয়ে দেব। টাকা পাঠালেই আপনার অর্ডার পাকা।</span></div></li>
+        <li><div><strong>খাবার পৌঁছে যাবে আপনার কাছে</strong><span>টাকা পাওয়ার পর যত্ন করে বস্তা তুলে কথামতো সময়ে আপনার ঠিকানায় পাঠিয়ে দিই।</span></div></li>
       </ol>
     </div>
   </section>
@@ -383,7 +390,8 @@ footer .brand-name { font-size: 22px; }
 <footer>
   <div class="wrap">
     <span class="brand-name">খামারির খাবার</span>
-    <span>মাছ চাষির পাশে। khamarirkhabar.com</span>
+    <span>আমাদের খাবারের ক্রেতার বিশ্বাসই আমাদের ব্যবসার মূলধন</span>
+    <span>khamarirkhabar.com</span>
   </div>
 </footer>
 
