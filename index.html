@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="খামারির খাবার: মাছ চাষিদের জন্য ডিওআরবি, সরিষার খৈল, ডিডিজিএস, রাইস ব্রান ও শুঁটকির গুঁড়া। ফোন বা হোয়াটসঅ্যাপে অর্ডার করুন।">
+<!--ARTIFACT-START-->
+<title>খামারির খাবার</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;600;700&display=swap">
+<style>
+/* লেআউট: এক কলামের মোবাইল পাতা — মাঠ-পুকুরের দৃশ্য দিয়ে শুরু, তারপর পণ্যের তালিকা, নিচে সবসময় ফোন/হোয়াটসঅ্যাপ বার */
+:root {
+  --bg: #eef1e3;        /* ধানপাতার ফিকে সবুজ */
+  --surface: #fbfcf6;
+  --ink: #2a2418;       /* মাটির গাঢ় রং */
+  --muted: #5f5a48;
+  --paddy: #3d6b28;     /* ধানক্ষেত */
+  --soil: #7a5230;      /* এঁটেল মাটি */
+  --mustard: #e0a91a;   /* সরিষা ফুল */
+  --pond: #2d6470;      /* পুকুরের জল */
+  --line: #d3d8c0;
+  --on-accent: #fffdf2;
+  --font-display: "Galada", "Hind Siliguri", "Noto Sans Bengali", serif;
+  --font-body: "Hind Siliguri", "Noto Sans Bengali", "Nirmala UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151a10; --surface: #1e2517; --ink: #ecead8; --muted: #b3b09a;
+    --paddy: #8cc06a; --soil: #d1a273; --mustard: #f0bf3c; --pond: #6fb3bf;
+    --line: #333b28; --on-accent: #151a10; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151a10; --surface: #1e2517; --ink: #ecead8; --muted: #b3b09a;
+  --paddy: #8cc06a; --soil: #d1a273; --mustard: #f0bf3c; --pond: #6fb3bf;
+  --line: #333b28; --on-accent: #151a10; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  padding-bottom: 76px; /* নিচের কল-বারের জায়গা */
+}
+img { max-width: 100%; display: block; }
+a { color: var(--pond); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.3; margin: 0; }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- মাথা ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand svg { width: 40px; height: 40px; flex: none; }
+.brand-name { font-family: var(--font-display); font-size: 26px; line-height: 1; color: var(--paddy); }
+.top nav { display: none; gap: 20px; }
+.top nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+@media (min-width: 760px) { .top nav { display: flex; } }
+
+/* ---------- শুরুর দৃশ্য ---------- */
+.hero { position: relative; overflow: hidden; background: var(--surface); }
+.hero .wrap { padding-block: 32px 0; display: grid; gap: 18px; }
+.eyebrow { font-weight: 700; color: var(--soil); font-size: 15px; letter-spacing: .02em; }
+.hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 9vw, 64px); color: var(--paddy); }
+.hero p { margin: 0; max-width: 34em; color: var(--muted); font-size: 18px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 20px; border-radius: 999px;
+  font: 700 17px var(--font-body); text-decoration: none; border: 2px solid transparent;
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-call { background: var(--paddy); color: var(--on-accent); }
+.btn-wa { background: transparent; color: var(--paddy); border-color: var(--paddy); }
+.scene { display: block; width: 100%; height: auto; margin-top: 8px; }
+
+/* ---------- বিভাগ ---------- */
+section { padding-block: 40px; }
+.sec-head { display: grid; gap: 6px; margin-bottom: 22px; }
+.sec-head h2 { font-size: clamp(24px, 5.5vw, 32px); color: var(--ink); }
+.sec-head p { margin: 0; color: var(--muted); max-width: 38em; }
+
+.cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.cat {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 15px;
+  border: 1px solid var(--line); color: var(--muted); background: var(--surface);
+}
+.cat.on { background: var(--pond); border-color: var(--pond); color: var(--on-accent); }
+.cat small { font-size: 12px; font-weight: 600; color: var(--soil); }
+
+/* ---------- পণ্য ---------- */
+.grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 620px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  overflow: hidden; display: flex; flex-direction: column; min-width: 0;
+}
+.photo {
+  aspect-ratio: 4 / 3; max-width: 100%; position: relative;
+  display: grid; place-items: center; text-align: center;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--soil) 9%, transparent) 14px 15px),
+    color-mix(in srgb, var(--soil) 12%, var(--surface));
+  color: var(--soil); font-size: 14px; font-weight: 600;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo .ph { display: grid; gap: 4px; justify-items: center; padding: 12px; }
+.photo .ph svg { width: 40px; height: 40px; }
+.photo .ph code { font-size: 12px; font-weight: 400; opacity: .85; }
+.body { padding: 16px 18px 18px; display: grid; gap: 10px; flex: 1; align-content: start; }
+.body h3 { font-size: 22px; color: var(--paddy); }
+.body h3 span { display: block; font-size: 14px; font-weight: 600; color: var(--muted); }
+.body p { margin: 0; color: var(--ink); }
+.specs { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; font-size: 15px; }
+.specs dt { color: var(--muted); }
+.specs dd { margin: 0; font-weight: 600; }
+.card .ask {
+  margin-top: auto; padding: 12px 18px; border-top: 1px dashed var(--line);
+  display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-size: 15px; color: var(--muted);
+}
+.card .ask a { font-weight: 700; color: var(--paddy); text-decoration: none; }
+.note { margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+/* ---------- কেন আমরা ---------- */
+.why { background: var(--surface); border-block: 1px solid var(--line); }
+.why ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .why ul { grid-template-columns: repeat(3, 1fr); } }
+.why li { display: grid; gap: 4px; }
+.why li strong { font-size: 19px; color: var(--soil); }
+.why li span { color: var(--muted); }
+
+/* ---------- অর্ডারের ধাপ ---------- */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; }
+.steps li::before {
+  content: counter(s, bengali); display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--mustard); color: #2a2418; font-weight: 700; font-size: 20px;
+}
+.steps strong { display: block; font-size: 18px; }
+.steps span { color: var(--muted); }
+
+/* ---------- যোগাযোগ ---------- */
+.contact .box {
+  background: var(--paddy); color: var(--on-accent); border-radius: 16px;
+  padding: 24px; display: grid; gap: 14px;
+}
+.contact h2 { font-size: clamp(24px, 5.5vw, 32px); }
+.contact .num { font-size: clamp(24px, 6vw, 34px); font-weight: 700; letter-spacing: .02em; font-variant-numeric: tabular-nums; user-select: all; }
+.contact p { margin: 0; }
+.contact .btn-call { background: var(--on-accent); color: var(--paddy); }
+.contact .btn-wa { color: var(--on-accent); border-color: var(--on-accent); }
+
+footer { padding-block: 28px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+footer .wrap { display: grid; gap: 4px; }
+footer .brand-name { font-size: 22px; }
+
+/* ---------- নিচের স্থায়ী বার (মোবাইল) ---------- */
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  background: var(--surface); border-top: 1px solid var(--line);
+}
+.dock .btn { width: 100%; }
+@media (min-width: 760px) { .dock { display: none; } body { padding-bottom: 0; } }
+</style>
+<!--ARTIFACT-HEAD-END-->
+</head>
+<body>
+<!--
+  ===== কোথায় কী বদলাবেন =====
+  ১. ফোন নম্বর: "01XXX-XXXXXX" ও "+8801XXXXXXXXX" লেখা সব জায়গায় নিজের নম্বর দিন।
+  ২. হোয়াটসঅ্যাপ: "https://wa.me/8801XXXXXXXXX" লিঙ্কে নিজের নম্বর দিন (শুরুতে 880, মাঝে কোনো ফাঁকা নয়)।
+  ৩. ছবি: প্রতিটি পণ্যের <div class="ph">...</div> অংশ মুছে সেখানে
+     <img src="images/dorb.jpg" alt="ডিওআরবি" loading="lazy" width="800" height="600"> লিখুন।
+     ছবিগুলো এই ফাইলের পাশে "images" নামের ফোল্ডারে রাখুন। ছবি ছোট রাখুন (১০০–২০০ KB), গ্রামের ধীর ইন্টারনেটেও দ্রুত খুলবে।
+  ৪. নতুন বিভাগ (গবাদি পশুর খাবার, ওষুধ ইত্যাদি): একটা <article class="card"> কপি করে নতুন পণ্য বানান।
+-->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="var(--paddy)"/>
+        <path d="M9 23c4-5 9-6 14-4l6-4-1 6 1 6-6-4c-5 2-10 1-14-4z" fill="var(--on-accent)"/>
+        <circle cx="13.5" cy="22" r="1.3" fill="var(--paddy)"/>
+        <path d="M20 9c0 4-2 6-2 6M20 9c2 2 2 4 1 6M24 10c-1 2-2 4-3 5" stroke="var(--mustard)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">খামারির খাবার</span>
+    </a>
+    <nav aria-label="মূল মেনু">
+      <a href="#products">পণ্য</a>
+      <a href="#order">অর্ডার</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">মাছ চাষিদের নিজের দোকান</span>
+      <h1>পুকুরের মাছের জন্য খাঁটি খাবার</h1>
+      <p>ডিওআরবি, সরিষার খৈল, ডিডিজিএস, রাইস ব্রান আর শুঁটকির গুঁড়া। ভালো মানের খাদ্য উপকরণ, ন্যায্য দামে, আপনার খামারের কাছে পৌঁছে দিই।</p>
+      <div class="cta-row">
+        <a class="btn btn-call" href="tel:+8801XXXXXXXXX">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+          ফোন করুন
+        </a>
+        <a class="btn btn-wa" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.13-.56.12-.64.8-.78.97-.29.19-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.44.25-.4.72-1.34a.45.45 0 0 0-.02-.43c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.43h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1.02 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.69 2.23.75 3.03.63a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .15-1.2c-.06-.11-.23-.17-.48-.29z"/></svg>
+          হোয়াটসঅ্যাপ
+        </a>
+      </div>
+    </div>
+    <!-- মাঠ, সরিষা ফুল আর পুকুরের ছোট্ট দৃশ্য -->
+    <svg class="scene" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 70 C200 40 380 60 560 52 S940 30 1200 58 V160 H0z" fill="var(--paddy)" opacity=".85"/>
+      <path d="M0 92 C240 70 460 96 700 84 S1020 70 1200 88 V160 H0z" fill="var(--mustard)" opacity=".9"/>
+      <path d="M0 116 C260 104 520 122 760 112 S1060 104 1200 114 V160 H0z" fill="var(--soil)"/>
+      <path d="M380 160 C420 128 780 128 860 160z" fill="var(--pond)"/>
+      <path d="M470 146 q20 -6 40 0 M560 140 q20 -6 40 0 M660 148 q20 -6 40 0" stroke="var(--on-accent)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+    </svg>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>আমাদের পণ্য</h2>
+        <p>সব পণ্য বস্তায় বিক্রি হয়। দাম বাজার অনুযায়ী ওঠানামা করে, তাই আজকের দাম জানতে ফোন বা হোয়াটসঅ্যাপ করুন।</p>
+      </div>
+
+      <!-- ভবিষ্যতের বিভাগগুলো এখানে যোগ হবে -->
+      <div class="cats" aria-label="পণ্যের বিভাগ">
+        <span class="cat on">মাছের খাবার</span>
+        <span class="cat">গবাদি পশুর খাবার <small>শীঘ্রই</small></span>
+        <span class="cat">হাঁস-মুরগির খাবার <small>শীঘ্রই</small></span>
+        <span class="cat">পশুর ওষুধ <small>শীঘ্রই</small></span>
+        <span class="cat">কৃষি উপকরণ <small>শীঘ্রই</small></span>
+      </div>
+
+      <div class="grid">
+        <article class="card" data-category="fish">
+          <div class="photo">
+            <div class="ph">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+              ছবি এখানে বসান
+              <code>images/dorb.jpg</code>
+            </div>
+          </div>
+          <div class="body">
+            <h3>ডিওআরবি <span>তেল ছাড়ানো চালের কুঁড়া (DORB)</span></h3>
+            <p>দেশি মাছের খাবারের মূল ভিত্তি। সহজে হজম হয়, দামে সাশ্রয়ী, তৈরি খাবারের সাথে মিশিয়ে দেওয়া যায়।</p>
+            <dl class="specs">
+              <dt>প্রোটিন</dt><dd>প্রায় ১৪–১৬%</dd>
+              <dt>বস্তা</dt><dd>৫০ কেজি</dd>
+            </dl>
+          </div>
+          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%A1%E0%A6%BF%E0%A6%93%E0%A6%86%E0%A6%B0%E0%A6%AC%E0%A6%BF%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
+        </article>
+
+        <article class="card" data-category="fish">
+          <div class="photo">
+            <div class="ph">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+              ছবি এখানে বসান
+              <code>images/rapeseed-cake.jpg</code>
+            </div>
+          </div>
+          <div class="body">
+            <h3>রেপসিড অয়েল কেক <span>সরিষার খৈল</span></h3>
+            <p>উদ্ভিজ্জ প্রোটিনের ভালো উৎস। খাবারে মেশানো ছাড়াও পুকুরে প্রাকৃতিক খাবার তৈরিতে চাষিরা ব্যবহার করেন।</p>
+            <dl class="specs">
+              <dt>প্রোটিন</dt><dd>প্রায় ৩২–৩৬%</dd>
+              <dt>বস্তা</dt><dd>৫০ কেজি</dd>
+            </dl>
+          </div>
+          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B8%E0%A6%B0%E0%A6%BF%E0%A6%B7%E0%A6%BE%E0%A6%B0%20%E0%A6%96%E0%A7%88%E0%A6%B2%E0%A7%87%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
+        </article>
+
+        <article class="card" data-category="fish">
+          <div class="photo">
+            <div class="ph">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+              ছবি এখানে বসান
+              <code>images/ddgs.jpg</code>
+            </div>
+          </div>
+          <div class="body">
+            <h3>ডিডিজিএস <span>ভুট্টার শুকনো দানা (DDGS)</span></h3>
+            <p>ভুট্টা থেকে তৈরি উচ্চ প্রোটিন ও শক্তির খাদ্য উপকরণ। খাবারের খরচ কমাতে খৈল বা ফিশ মিলের কিছু অংশের বদলে দেওয়া যায়।</p>
+            <dl class="specs">
+              <dt>প্রোটিন</dt><dd>প্রায় ২৬–৩০%</dd>
+              <dt>বস্তা</dt><dd>৫০ কেজি</dd>
+            </dl>
+          </div>
+          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=DDGS%20%E0%A6%8F%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
+        </article>
+
+        <article class="card" data-category="fish">
+          <div class="photo">
+            <div class="ph">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+              ছবি এখানে বসান
+              <code>images/rice-bran.jpg</code>
+            </div>
+          </div>
+          <div class="body">
+            <h3>রাইস ব্রান <span>চালের কুঁড়া (তেলসহ)</span></h3>
+            <p>তেল না ছাড়ানো কুঁড়া, তাই শক্তি বেশি। কার্প জাতীয় মাছের দৈনিক খাবারে বহুল ব্যবহৃত।</p>
+            <dl class="specs">
+              <dt>প্রোটিন</dt><dd>প্রায় ১২–১৪%</dd>
+              <dt>বস্তা</dt><dd>৫০ কেজি</dd>
+            </dl>
+          </div>
+          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B0%E0%A6%BE%E0%A6%87%E0%A6%B8%20%E0%A6%AC%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%A8%E0%A7%87%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
+        </article>
+
+        <article class="card" data-category="fish">
+          <div class="photo">
+            <div class="ph">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.6l3.5-3.5 3 3 4-4.6L19 14V7zm3.5 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+              ছবি এখানে বসান
+              <code>images/fish-meal.jpg</code>
+            </div>
+          </div>
+          <div class="body">
+            <h3>ফিশ মিল <span>শুঁটকির গুঁড়া</span></h3>
+            <p>প্রাণিজ প্রোটিনের সবচেয়ে শক্তিশালী উৎস। পোনা ও দ্রুত বাড়ন্ত মাছের খাবারে মিশিয়ে দিলে বৃদ্ধি ভালো হয়।</p>
+            <dl class="specs">
+              <dt>প্রোটিন</dt><dd>প্রায় ৪৫–৫৫%</dd>
+              <dt>বস্তা</dt><dd>২৫ / ৫০ কেজি</dd>
+            </dl>
+          </div>
+          <div class="ask">আজকের দাম <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B6%E0%A7%81%E0%A6%81%E0%A6%9F%E0%A6%95%E0%A6%BF%E0%A6%B0%20%E0%A6%97%E0%A7%81%E0%A6%81%E0%A6%A1%E0%A6%BC%E0%A6%BE%E0%A6%B0%20%E0%A6%A6%E0%A6%BE%E0%A6%AE%20%E0%A6%95%E0%A6%A4%3F" target="_blank" rel="noopener">জানতে চাই →</a></div>
+        </article>
+      </div>
+      <p class="note">প্রোটিনের হার সাধারণ মান, ব্যাচ অনুযায়ী কিছুটা কম-বেশি হতে পারে।</p>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <div class="sec-head"><h2>কেন খামারির খাবার</h2></div>
+      <ul>
+        <li><strong>যাচাই করা মাল</strong><span>শুকনো, গন্ধ ও ভেজালমুক্ত মাল দেখে বস্তা তোলা হয়।</span></li>
+        <li><strong>ন্যায্য দাম</strong><span>বাজারদর অনুযায়ী দাম, বেশি নিলে আরও কম।</span></li>
+        <li><strong>খামারে পৌঁছে দেওয়া</strong><span>কাছাকাছি এলাকায় পরিবহনের ব্যবস্থা করে দিই।</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>কিভাবে অর্ডার করবেন</h2>
+        <p>এখন অনলাইনে অর্ডার নেওয়া হয় না। ফোন বা হোয়াটসঅ্যাপেই সব হয়।</p>
+      </div>
+      <ol class="steps">
+        <li><div><strong>ফোন বা মেসেজ দিন</strong><span>কোন পণ্য কত বস্তা লাগবে বলুন।</span></div></li>
+        <li><div><strong>দাম ও ডেলিভারি ঠিক করুন</strong><span>আজকের দাম আর পৌঁছানোর দিন জানিয়ে দেব।</span></div></li>
+        <li><div><strong>মাল বুঝে নিন</strong><span>খামারে মাল পৌঁছালে দেখে নিয়ে টাকা দিন।</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="box">
+        <h2>যোগাযোগ</h2>
+        <div class="num">01XXX-XXXXXX</div>
+        <p>সকাল ৮টা থেকে রাত ৯টা, প্রতিদিন</p>
+        <div class="cta-row">
+          <a class="btn btn-call" href="tel:+8801XXXXXXXXX">ফোন করুন</a>
+          <a class="btn btn-wa" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">হোয়াটসঅ্যাপে মেসেজ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand-name">খামারির খাবার</span>
+    <span>মাছ, পশু ও ফসলের খামারির পাশে। khamarirkhabar.com</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-call" href="tel:+8801XXXXXXXXX">ফোন করুন</a>
+  <a class="btn btn-wa" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener">হোয়াটসঅ্যাপ</a>
+</div>
+<!--ARTIFACT-END-->
+</body>
+</html>
